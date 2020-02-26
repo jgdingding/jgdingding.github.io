@@ -2,7 +2,9 @@
 <html>
   <head>
     <title>Yelp-ify!</title>
-    <link rel="icon" href="yelpifyLogo.png" type="image/png" sizes="16x16" />
+    <!--
+	<link rel="icon" href="yelpifyLogo.png" type="image/png" sizes="16x16" />
+	-->
 
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -15,13 +17,16 @@
       media="screen,projection"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
 
   <body>
     <h1>Yelp-ify!</h1>
-    <br />
+    <button onclick="queryAPI()">Click me!</button>
     <p id="p1">Hello World!</p>
 
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
   </body>
 </html>
