@@ -18,6 +18,7 @@ app.set("view engine", "hbs");
 
 app.use("/js", express.static(path.join(__dirname, "js")));
 app.use("/css", express.static(path.join(__dirname, "css")));
+app.use("/pics", express.static(path.join(__dirname, "images")));
 
 // -------------- variable definition -------------- //
 // This counter is stored in RAM, and will be reset every time you
@@ -34,6 +35,18 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
+app.get("/search", function(req, res) {
+  res.sendFile(__dirname + "/search.html");
+});
+
+app.get("/favorites", function(req, res) {
+  res.sendFile(__dirname + "/favorites.html");
+});
+
+app.get("/images", function(req, res) {
+  res.sendFile(__dirname + "/images.html");
+});
+
 app.get("/businessInfo", function(req, res) {
   client
     .search({
@@ -47,7 +60,6 @@ app.get("/businessInfo", function(req, res) {
     .catch(e => {
       console.log(e);
     });
-  //   res.sendFile(__dirname + "/index.html");
 });
 
 app.get("/:page", function(req, res) {
