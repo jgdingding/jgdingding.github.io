@@ -1,156 +1,108 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Yelp-ify!</title>
-    <!--
-	<link rel="icon" href="yelpifyLogo.png" type="image/png" sizes="16x16" />
-	-->
 
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="css/materialize.min.css"
-      media="screen,projection"
-    />
-    <link type="text/css" rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <title>Yelpify!</title>
+  <link rel="icon" href="pics/icon.png" type="image/png" sizes="16x16" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Leckerli+One" />
 
-  <body>
-    <nav class="teal">
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo left">
-          <img
-            src="pics/yelpifyLogoTrans.png"
-            alt="Yelp-ify!"
-            width="auto"
-            height="64"
-            class="align"
-          />
-        </a>
-        <ul class="right">
-          <li><a href="/search">Search</a></li>
-          <li><a href="/favorites">Favorites</a></li>
-          <li><a href="/images">View Food</a></li>
-        </ul>
-      </div>
-    </nav>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
 
-    <section>
-      <header class="headline" style="padding:128px 16px">
-        <h1 class="pageTitle">Yelpify!</h1>
-        <p class="xlarge">Streamlined web application for Yelp.</p>
-        <button
-          onclick="window.location.href ='/search';"
-          class="waves-effect waves-light btn-large"
-        >
-          Get Started
-        </button>
-      </header>
+<body>
+  <nav class="teal">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo left">
+        <img src="pics/yelpifyLogoTrans.png" alt="Yelpify!" width="auto" height="64" class="align" />
+      </a>
+      <ul class="right">
+        <li><a href="/search">Search</a></li>
+        <li><a href="/favorites">Favorites</a></li>
+        <li><a href="/images">View Food</a></li>
+      </ul>
+    </div>
+  </nav>
 
-      <div class="landing-info">
-        <div class="landing-background"></div>
-        <a class="landing-info-panel" href="/search">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <h2>Search</h2>
-          <p>Browse restaurants based on personal preferences</p>
-        </a>
-        <a class="landing-info-panel" href="/favorites">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polygon
-              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-            ></polygon>
-          </svg>
-          <h2>Favorites</h2>
-          <p>Star your favorite restaurants</p>
-        </a>
-        <a class="landing-info-panel" href="/images">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <rect x="3" y="3" width="7" height="7"></rect>
-            <rect x="14" y="3" width="7" height="7"></rect>
-            <rect x="14" y="14" width="7" height="7"></rect>
-            <rect x="3" y="14" width="7" height="7"></rect>
-          </svg>
-          <h2>Images</h2>
-          <p>Browse restaurants based on images of food</p>
-        </a>
-      </div>
+  <section>
+    <header class="headline" style="padding:128px 16px">
+      <h1 class="pageTitle">Yelpify!</h1>
+      <p class="xlarge">Streamlined web application for Yelp.</p>
+      <button onclick="window.location.href ='/search';" class="waves-effect waves-light btn-large">
+        Get Started
+      </button>
+    </header>
 
-      <div class="addpadding">
-        <div class="content">
-          <div class="">
-            <h1>About</h1>
-            <h5 class="somepadding">
-              This website was created using Yelp Fusion API for the Capital One
-              Software Engineering Summit Program software challenge.
-            </h5>
-          </div>
+    <div class="landing-info">
+      <div class="landing-background"></div>
+      <a class="landing-info-panel" href="/search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <h2>Search</h2>
+        <p>Browse restaurants based on personal preferences</p>
+      </a>
+      <a class="landing-info-panel" href="/favorites">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon
+            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+          </polygon>
+        </svg>
+        <h2>Favorites</h2>
+        <p>Star your favorite restaurants</p>
+      </a>
+      <a class="landing-info-panel" href="/images">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        <h2>Images</h2>
+        <p>Browse restaurants based on images of food</p>
+      </a>
+    </div>
+
+    <div class="addpadding">
+      <div class="content">
+        <div class="">
+          <h1>About</h1>
+          <h5 class="somepadding">
+            This website was created using Yelp Fusion API for the Capital One
+            Software Engineering Summit Program coding challenge.
+          </h5>
         </div>
       </div>
+    </div>
 
-      <footer>
-        <div class="xlarge somepadding">
-          <a href="https://github.com/jgdingding/" target="_blank">
-            <i class="fa fa-github w3-hover-opacity"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/justin-gou-aa4bb119a/"
-            target="_blank"
-          >
-            <i class="fa fa-linkedin w3-hover-opacity"></i>
-          </a>
-        </div>
-      </footer>
-    </section>
+    <footer>
+      <div class="xlarge somepadding">
+        <h5>Made by Justin Gou</h5>
+        <a href="https://github.com/jgdingding/" target="_blank">
+          <i class="fa fa-github w3-hover-opacity"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/justin-gou-aa4bb119a/" target="_blank">
+          <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </a>
+      </div>
+    </footer>
+  </section>
 
-    <button onclick="queryAPI()">Click me!</button>
-    <p id="p1">Hello World!</p>
+  <button onclick="queryAPI()">Click me!</button>
+  <p id="p1">Hello World!</p>
 
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/api.js"></script>
-  </body>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/api.js"></script>
+</body>
+
 </html>

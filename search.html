@@ -1,43 +1,93 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Yelp-ify!</title>
 
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="css/materialize.min.css"
-      media="screen,projection"
-    />
-    <link type="text/css" rel="stylesheet" href="css/index.css" />
+<head>
+
+  <head>
+    <title>Yelpify!</title>
+    <link rel="icon" href="pics/icon.png" type="image/png" sizes="16x16" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/search.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Domine&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Leckerli+One" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
 
-  <body>
-    <nav class="teal">
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo left">
-          <img
-            src="pics/yelpifyLogoTrans.png"
-            alt="Yelp-ify!"
-            width="auto"
-            height="64"
-          />
-        </a>
-        <ul class="right">
-          <li><a href="/search">Search</a></li>
-          <li><a href="/favorites">Favorites</a></li>
-          <li><a href="/images">View Food</a></li>
-        </ul>
-      </div>
-    </nav>
+<body>
+  <nav class="teal">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo left">
+        <img src="pics/yelpifyLogoTrans.png" alt="Yelpify!" width="auto" height="64" />
+      </a>
+      <ul class="right">
+        <li><a href="/search">Search</a></li>
+        <li><a href="/favorites">Favorites</a></li>
+        <li><a href="/images">View Food</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-  </body>
+  <section>
+    <div class="container pad center">
+      <form onsubmit="getShops()" id="options">
+        <div class="label">Type of Food: </div><input id="term" type="text" name="term" class="txtinput"
+          placeholder="i.e. Cuisine, Dishes, Drinks, etc."> <br>
+        <div class="label pad padlessbottom"> Location: </div>
+        <label>
+          <input name="loc" type="radio" checked value="this" />
+          <span>Current Location</span>
+        </label>
+        <label class="padright padrightpercent" id="removepad">
+          <input name="loc" type="radio" value="other" />
+          <span>Other Location</span>
+        </label>
+        <input type="text" name="location" class="txtinputshort invis" id="locInput" placeholder="i.e. New York City">
+        <br>
+        <div class="label pad"> Price: </div>
+        <label class="padright">
+          <input name="cost" class="cost" type="checkbox" value="1" />
+          <span>$</span>
+        </label>
+        <label class="padright">
+          <input name="cost" class="cost" type="checkbox" value="2" />
+          <span>$$</span>
+        </label>
+        <label class="padright">
+          <input name="cost" class="cost" type="checkbox" value="3" />
+          <span>$$$</span>
+        </label>
+        <label class="padright">
+          <input name="cost" class="cost" type="checkbox" value="4" />
+          <span>$$$$</span>
+        </label> <br>
+        <div class="label pad padbottom"> Open Now? </div>
+        <label class="padright">
+          <input name="open" type="radio" checked value="open" />
+          <span>Yes</span>
+        </label>
+        <label>
+          <input name="open" type="radio" value="closed" />
+          <span>Don't Care</span>
+        </label> <br>
+        <button class="btn waves-effect waves-light" type="submit">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+
+    <div class="container pad center" id="mainBody">
+    </div>
+  </section>
+
+  <script type="text/javascript" src="js/search.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_MPGJc-qoBFauEycfD2B6J96PsQkaMJg">
+  </script>
+</body>
+
 </html>

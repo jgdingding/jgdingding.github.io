@@ -1,0 +1,61 @@
+var searchterms = {};
+  for (const key in req.query) {
+    searchterms[key] = req.query[key];
+  }
+  // var term = req.query.term;
+  // if (req.query.term.length == 0) {
+  //   term = "restaurant";
+  // }
+  // searchterms["term"] = term;
+  // if (req.query.location.length == 0) {
+  //   searchterms["latitude"] = req.query.latitude;
+  //   searchterms["longitude"] = req.query.longitude;
+  // } else {
+  //   searchterms["location"] = req.query.location;
+  // }
+  // if (req.query.price.length != 0) {
+  //   searchterms["price"] = req.query.price;
+  // }
+  console.log(JSON.stringify(searchterms));
+  client
+    .search(searchterms)
+    .then(response => {
+      var result = {};
+      var restaurants = [];
+      for (i = 0; i < response.jsonBody.businesses.length; i++) {
+        restaurants.push({
+          rating: response.jsonBody.businesses[i].rating,
+          name: response.jsonBody.businesses[i].name,
+          is_closed: response.jsonBody.businesses[i].is_closed,
+          distance: response.jsonBody.businesses[i].distance
+        });
+      }
+      result["businesses"] = restaurants;
+      console.log(result);
+      res.redirect("search?response=" + JSON.stringify(result));
+    })
+    .catch(e => {
+      console.log(e);
+    });
+
+    <div class="container pad">
+      <ul class="collection restaurants">
+        <li class="collection-item taller">
+          <div class="padlessbottom">
+            <span class="title">Name</span>
+            <a onclick="favorited()" href="#" class="secondary-content favorite"><i id="rater"
+                class="material-icons favorite">star_border</i></a>
+          </div>
+          <div class="addSpace">
+            <ul class="resAtt">
+              <li>Rating: 4/5</li>
+              <li>Price: $</li>
+            </ul>
+            <ul class="resAtt">
+              <li>Open Now</li>
+              <li>Distance: 12 Miles</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>

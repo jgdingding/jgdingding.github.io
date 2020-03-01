@@ -1,0 +1,89 @@
+.pad {
+    margin-top: 30px;
+}
+
+.padright {
+    margin-right: 25px;
+}
+
+.padbottom {
+    margin-bottom: 30px;
+}
+
+.padlessbottom {
+    margin-bottom: 17px !important;
+}
+
+.padrightpercent {
+    padding-right: 20%;
+}
+
+.txtinput {
+    width: 50% !important;
+}
+
+.txtinputshort {
+    width: 20% !important;
+}
+
+.label {
+    display: inline-block;
+    margin-right: 10px;
+    font-family: "Domine", serif;
+    font-size: large;
+}
+
+.invis {
+    display: none;
+    height: 2rem;
+}
+
+.restaurants {
+    width: 70%;
+    margin: auto;
+}
+
+.title {
+    text-align: left;
+    font-size: x-large;
+    position: relative;
+    top: 8px;
+}
+
+.favorite {
+    position: relative;
+    top: 5px;
+    right: 2px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.resAtt {
+    width: 50%;
+    float: left;
+}
+
+.taller {
+    padding-bottom: 70px !important;
+}
+
+html,
+body {
+    font-family: Verdana, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+.moveleft {
+    display: inline-block;
+    text-align: left;
+}
+
+.mapstyle {
+    height: 300px;
+    display: none;
+}

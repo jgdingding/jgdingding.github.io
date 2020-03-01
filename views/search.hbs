@@ -1,0 +1,33 @@
+<div class="container pad center" id="mapDiv">
+  <button onclick="showMap()" class="btn waves-effect waves-light padlessbottom" id="mapbtn">View Map
+    <i class="material-icons right">map</i>
+  </button>
+  <div id="map_div" class="mapstyle padlessbottom"></div>
+</div>
+<ul class="collection restaurants moveleft">
+  {{#each businesses}}
+  <li class="collection-item taller">
+    <div class="padlessbottom">
+      <span class="title">{{this.name}}</span>
+      <a class="secondary-content favorite">
+        <i onclick="favoriter(this)" class="material-icons favorite">star_border</i>
+      </a>
+    </div>
+    <div class="addSpace">
+      <ul class="resAtt">
+        <li>Rating: {{this.rating}}/5</li>
+        <li>Price: {{this.price}}</li>
+      </ul>
+      <ul class="resAtt">
+        {{#if this.is_closed}}
+        <li>Closed Now</li>
+        <li>Distance: {{this.distance}} meters</li>
+        {{else}}
+        <li>Open Now</li>
+        <li>Distance: {{this.distance}} meters</li>
+        {{/if}}
+      </ul>
+      {{/each}}
+    </div>
+  </li>
+</ul>

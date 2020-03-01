@@ -22,7 +22,7 @@ function search(position) {
     "&longitude=" +
     long.toString();
   console.log(getstr);
-  $.get("/businessInfo?latitude=38.062144&longitude=-78.5092769", function(
+  $.get("/businessInfo?latitude=38.062144&longitude=-78.5092769", function (
     data
   ) {
     x.innerHTML = data;

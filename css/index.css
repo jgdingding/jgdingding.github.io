@@ -14,9 +14,11 @@
 
 .pageTitle {
   font-style: normal;
-  font-variant: bold;
+  font-variant: lighter;
   font-size: 64px !important;
   margin: 16px !important;
+  font-family: "Leckerli One";
+  color: #bf453d;
 }
 
 .xlarge {
@@ -34,6 +36,7 @@
 
   width: 100%;
 }
+
 .landing-background {
   position: absolute;
   width: 100%;
@@ -55,6 +58,10 @@
   color: white !important;
 }
 
+.landing-info-panel:hover {
+  background-color: #00a387;
+}
+
 h2 {
   display: block;
   font-size: 1.5em;
@@ -70,6 +77,7 @@ body {
   font-size: 15px;
   line-height: 1.5;
 }
+
 html {
   overflow-x: hidden;
 }
@@ -81,6 +89,7 @@ html {
   text-align: center;
   background-color: #bf453d;
 }
+
 .addpadding:after,
 .addpadding:before {
   content: "";
