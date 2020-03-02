@@ -110,3 +110,12 @@ html {
 footer {
   text-align: center;
 }
+
+.yelpifyLogo {
+  font-style: normal;
+  font-variant: lighter;
+  font-family: "Leckerli One";
+  color: #bf453d;
+  margin: 0 !important;
+  margin-left: 15px !important;
+}

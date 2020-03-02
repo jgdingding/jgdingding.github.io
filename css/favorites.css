@@ -1,18 +1,10 @@
-.yelpifyLogo {
-    font-style: normal;
-    font-variant: lighter;
-    font-family: "Leckerli One";
-    color: #bf453d;
-    margin: 0 !important;
-    margin-left: 15px !important;
-}
-
 .pad {
     margin-top: 30px;
 }
 
-.padright {
-    margin-right: 25px;
+.padsides {
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .padbottom {
@@ -21,30 +13,6 @@
 
 .padlessbottom {
     margin-bottom: 17px !important;
-}
-
-.padrightpercent {
-    padding-right: 20%;
-}
-
-.txtinput {
-    width: 50% !important;
-}
-
-.txtinputshort {
-    width: 20% !important;
-}
-
-.label {
-    display: inline-block;
-    margin-right: 10px;
-    font-family: "Domine", serif;
-    font-size: large;
-}
-
-.invis {
-    display: none;
-    height: 2rem;
 }
 
 .restaurants {
@@ -92,7 +60,11 @@ html {
     text-align: left;
 }
 
-.mapstyle {
-    height: 300px;
-    display: none;
+.yelpifyLogo {
+    font-style: normal;
+    font-variant: lighter;
+    font-family: "Leckerli One";
+    color: #bf453d;
+    margin: 0 !important;
+    margin-left: 15px !important;
 }

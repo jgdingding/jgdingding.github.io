@@ -21,6 +21,10 @@ function getLocation() {
 }
 $(document).ready(function () {
     getLocation();
+
+    if (localStorage.getItem("favorites") === null) {
+        localStorage.setItem("favorites", JSON.stringify([]));
+    }
 });
 
 $("input[type=radio][name=loc]").change(function () {
@@ -54,7 +58,7 @@ locInput.addEventListener("keydown", function (event) {
 function getShops() {
     var getstr = "/businessInfo?";
     getstr += "term=" + term.value + "&";
-    for (i = 0; i < loc.length; i++) {
+    for (var i = 0; i < loc.length; i++) {
         if (loc[i].checked) {
             if (loc[i].value == "this") {
                 getstr +=
@@ -71,7 +75,7 @@ function getShops() {
         })
         .join(", ");
     getstr += "price=" + checkCosts + "&";
-    for (i = 0; i < openness.length; i++) {
+    for (var i = 0; i < openness.length; i++) {
         if (openness[i].checked) {
             if (openness[i].value == "open") {
                 getstr += "open_now=true";
@@ -80,15 +84,47 @@ function getShops() {
     }
     $.get(getstr, function (data) {
         body.innerHTML = data;
+        var allRestaraunts = document.getElementsByName("restaurant");
+        for (var i = 0; i < allRestaraunts.length; i++) {
+            if (inFavorites(JSON.parse($(allRestaraunts[i]).attr("storeinfo")))) {
+                allRestaraunts[i].innerHTML = "star";
+            }
+        }
     });
 }
 
+function inFavorites(el) {
+    var storedFaves = JSON.parse(localStorage.getItem("favorites"));
+    for (var i = 0; i < storedFaves.length; i++) {
+        if (storedFaves[i].name == el.name && storedFaves[i].rating == el.rating && storedFaves[i].price == el.price) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function removeFrom(theList, el) {
+    result = theList;
+    for (var i = 0; i < theList.length; i++) {
+        if (theList[i].name == el.name && theList[i].rating == el.rating && theList[i].price == el.price) {
+            result.splice(i, 1);
+        }
+    }
+    return result;
+}
+
 function favoriter(el) {
+    var storedFaves = JSON.parse(localStorage.getItem("favorites"));
     if (el.innerHTML == "star_border") {
         el.innerHTML = "star";
+        storedFaves.push(JSON.parse($(el).attr("storeinfo")));
+        localStorage.setItem("favorites", JSON.stringify(storedFaves));
     } else {
         el.innerHTML = "star_border";
+        storedFaves = removeFrom(storedFaves, JSON.parse($(el).attr("storeinfo")));
+        localStorage.setItem("favorites", JSON.stringify(storedFaves));
     }
+    console.log(JSON.stringify(storedFaves));
 }
 
 function showMap() {
@@ -98,7 +134,7 @@ function showMap() {
     mapbtn.style.display = "none";
     var getstr = "/mapInfo?";
     getstr += "term=" + term.value + "&";
-    for (i = 0; i < loc.length; i++) {
+    for (var i = 0; i < loc.length; i++) {
         if (loc[i].checked) {
             if (loc[i].value == "this") {
                 getstr +=
@@ -115,7 +151,7 @@ function showMap() {
         })
         .join(", ");
     getstr += "price=" + checkCosts + "&";
-    for (i = 0; i < openness.length; i++) {
+    for (var i = 0; i < openness.length; i++) {
         if (openness[i].checked) {
             if (openness[i].value == "open") {
                 getstr += "open_now=true";
@@ -127,7 +163,7 @@ function showMap() {
         var coords = [];
         var links = [];
         var name = [];
-        for (i = 0; i < temp.businesses.length; i++) {
+        for (var i = 0; i < temp.businesses.length; i++) {
             coords.push({
                 lat: temp.businesses[i].coordinates.latitude,
                 lng: temp.businesses[i].coordinates.longitude
@@ -146,7 +182,7 @@ function showMap() {
             }
         );
         var infowindow = new google.maps.InfoWindow();
-        for (i = 0; i < coords.length; i++) {
+        for (var i = 0; i < coords.length; i++) {
             var marker = new google.maps.Marker({
                 position: coords[i],
                 map: map,
