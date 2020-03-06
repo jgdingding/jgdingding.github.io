@@ -8,9 +8,9 @@
   {{#each businesses}}
   <li class="collection-item taller">
     <div class="padlessbottom">
-      <span class="title">{{this.name}}</span>
+      <a href={{this.url}} target="_blank" class="textteal"><span class="title">{{this.name}}</span></a>
       <a class="secondary-content favorite">
-        <i storeinfo='{"rating":{{this.rating}},"price":"{{this.price}}","name":"{{this.name}}"}'
+        <i storeinfo='{"rating":{{this.rating}},"price":"{{this.price}}","name":"{{this.name}}","link":"{{this.url}}"}'
           onclick="favoriter(this)" class="material-icons favorite" name="restaurant">star_border</i>
       </a>
     </div>

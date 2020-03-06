@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Yelp-ify!</title>
 
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="css/materialize.min.css"
-      media="screen,projection"
-    />
-    <link type="text/css" rel="stylesheet" href="css/index.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <title>Yelpify!</title>
+  <link rel="icon" href="pics/icon.png" type="image/png" sizes="16x16" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/img.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Domine&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Leckerli+One" />
 
-  <body>
-    <nav class="teal">
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo left">
-          <img
-            src="pics/yelpifyLogoTrans.png"
-            alt="Yelp-ify!"
-            width="auto"
-            height="64"
-          />
-        </a>
-        <ul class="right">
-          <li><a href="/search">Search</a></li>
-          <li><a href="/favorites">Favorites</a></li>
-          <li><a href="/images">View Food</a></li>
-        </ul>
-      </div>
-    </nav>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
 
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-  </body>
+<body>
+  <nav class="teal">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo left">
+        <p class="yelpifyLogo">Yelpify!</p>
+      </a>
+      <ul class="right">
+        <li><a href="/search">Search</a></li>
+        <li><a href="/favorites">Favorites</a></li>
+        <li><a href="/images">View Food</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section>
+    <p class="center pad">Browse images from restaurants near you!</p>
+    <div class="container pad center" id="mainBody">
+      <ul id="images" class="images moveleft">
+
+
+      </ul>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="js/img.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+
 </html>

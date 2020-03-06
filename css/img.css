@@ -15,7 +15,7 @@
     margin-bottom: 17px !important;
 }
 
-.restaurants {
+.images {
     width: 70%;
     margin: auto;
 }
@@ -25,14 +25,6 @@
     font-size: x-large;
     position: relative;
     top: 8px;
-}
-
-.favorite {
-    position: relative;
-    top: 5px;
-    right: 2px;
-    display: inline-block;
-    cursor: pointer;
 }
 
 .resAtt {
@@ -71,4 +63,38 @@ html {
 
 .textteal {
     color: #26a69a;
+}
+
+.smaller {
+    width: 50%;
+    height: auto;
+    transition: 0.5s ease;
+}
+
+.img__wrap {
+    position: relative;
+    size: inherit;
+}
+
+.img__description {
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s, visibility .2s;
+    text-align: center;
+    font-size: 20px;
+}
+
+.img__wrap:hover .img__description {
+    visibility: visible;
+    opacity: 1;
+}
+
+.img__wrap:hover .smaller {
+    opacity: 0.5;
 }

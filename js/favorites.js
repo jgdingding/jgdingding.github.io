@@ -9,11 +9,12 @@ $(document).ready(function () {
             let name = favorites[i].name;
             let rating = favorites[i].rating;
             let price = favorites[i].price;
+            let url = favorites[i].link;
             var listhtml = `<li class="collection-item taller">
           <div class="padlessbottom">
-            <span class="title">${name}</span>
+            <a href="${url}" target="_blank" class="textteal"><span class="title">${name}</span></a>
             <a class="secondary-content favorite">
-                <i storeinfo='{"rating":${rating},"price":"${price}","name":"${name}"}'
+                <i storeinfo='{"rating":${rating},"price":"${price}","name":"${name}","link":"${url}"}'
             onclick="favoriter(this)" class="material-icons favorite">star</i>
             </a>
           </div>

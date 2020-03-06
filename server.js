@@ -61,6 +61,21 @@ app.get("/businessInfo", function (req, res) {
     });
 });
 
+app.get("/imageInfo", function (req, res) {
+  var searchterms = {};
+  for (const key in req.query) {
+    searchterms[key] = req.query[key];
+  }
+  client
+    .search(searchterms)
+    .then(response => {
+      res.send(response.jsonBody);
+    })
+    .catch(e => {
+      console.log(e);
+    });
+});
+
 app.get("/mapInfo", function (req, res) {
   var searchterms = {};
   for (const key in req.query) {

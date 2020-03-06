@@ -1,5 +1,5 @@
-var lat = 0;
-var long = 0;
+var lat = 37.7749;
+var long = -122.431297;
 var locInput = document.getElementById("locInput");
 var removepad = document.getElementById("removepad");
 var term = document.getElementById("term");
@@ -74,6 +74,9 @@ function getShops() {
             return el.value;
         })
         .join(", ");
+    if (checkCosts.length == 0) {
+        checkCosts = "1,2,3,4";
+    }
     getstr += "price=" + checkCosts + "&";
     for (var i = 0; i < openness.length; i++) {
         if (openness[i].checked) {
@@ -124,7 +127,7 @@ function favoriter(el) {
         storedFaves = removeFrom(storedFaves, JSON.parse($(el).attr("storeinfo")));
         localStorage.setItem("favorites", JSON.stringify(storedFaves));
     }
-    console.log(JSON.stringify(storedFaves));
+    //console.log(JSON.stringify(storedFaves));
 }
 
 function showMap() {
@@ -150,6 +153,9 @@ function showMap() {
             return el.value;
         })
         .join(", ");
+    if (checkCosts.length == 0) {
+        checkCosts = "1,2,3,4";
+    }
     getstr += "price=" + checkCosts + "&";
     for (var i = 0; i < openness.length; i++) {
         if (openness[i].checked) {
@@ -175,6 +181,40 @@ function showMap() {
             lat: lat,
             lng: long
         };
+        geocoder = new google.maps.Geocoder();
+        if (document.getElementById("other").checked) {
+            geocoder.geocode({
+                'address': locInput.value
+            }, function (results, status) {
+                if (status == 'OK') {
+                    curLoc = results[0].geometry.location;
+                    var map = new google.maps.Map(
+                        document.getElementById('map_div'), {
+                            zoom: 12,
+                            center: curLoc
+                        }
+                    );
+                    var infowindow = new google.maps.InfoWindow();
+                    for (var i = 0; i < coords.length; i++) {
+                        var marker = new google.maps.Marker({
+                            position: coords[i],
+                            map: map,
+                            title: name[i]
+                        });
+                        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                            return function () {
+                                infowindow.setContent(name[i]);
+                                infowindow.open(map, marker);
+                            }
+                        })(marker, i));
+                    }
+                    return;
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            })
+        }
+
         var map = new google.maps.Map(
             document.getElementById('map_div'), {
                 zoom: 12,
