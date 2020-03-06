@@ -73,9 +73,9 @@ function getShops() {
         .map(function (el) {
             return el.value;
         })
-        .join(", ");
+        .join(",");
     if (checkCosts.length == 0) {
-        checkCosts = "1,2,3,4";
+        var checkCosts = "1,2,3,4";
     }
     getstr += "price=" + checkCosts + "&";
     for (var i = 0; i < openness.length; i++) {
@@ -85,6 +85,7 @@ function getShops() {
             }
         }
     }
+    console.log(getstr);
     $.get(getstr, function (data) {
         body.innerHTML = data;
         var allRestaraunts = document.getElementsByName("restaurant");
