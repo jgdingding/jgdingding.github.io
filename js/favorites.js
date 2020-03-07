@@ -5,7 +5,7 @@ var shopList = document.getElementById("shopList");
 //Uses HTML templating
 $(document).ready(function () {
     if (localStorage.getItem("favorites") === null || localStorage.getItem("favorites") == "[]") {
-        shopList.innerHTML = '<li class="colleciton-item center padsides">You have no favorites! Select them on the search page</li>';
+        shopList.innerHTML = '<li class="colleciton-item center padsides">You have no favorites! Select them on the search page using the star icon</li>';
     } else {
         var favorites = JSON.parse(localStorage.getItem("favorites"));
         for (i = 0; i < favorites.length; i++) {
