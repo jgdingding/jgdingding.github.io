@@ -11,6 +11,7 @@ function updatePosition(position) {
   getstr =
     "/imageInfo?longitude=" + long.toString() + "&latitude=" + lat.toString();
   $.get(getstr, function (data) {
+    imgList.innerHTML = "";
     for (var i = 0; i < data.businesses.length; i++) {
       let imgUrl = data.businesses[i].image_url;
       let weblink = data.businesses[i].url;

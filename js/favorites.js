@@ -30,6 +30,8 @@ $(document).ready(function () {
         </li>`
             shopList.innerHTML += listhtml;
         }
+        shopList.innerHTML += `<li class="center collection-item"><button onclick="location.reload()"
+        class="waves-effect waves-light btn-large">Refresh</button></li>`
     }
 });
 

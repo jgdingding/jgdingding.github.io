@@ -23,6 +23,15 @@ const client = yelp.client(
   "jnvBl_qSJ0cJxTSy01pcCPEyAYey6gKKO3cSS_7_Ft-d8ObyIfKvxbXRdiBGcFaj9Y60k7Xtz2MyFfymIOaT6tgN1FcBzNbEbd5Zs6c-hD_GjIOB-_RY2WC58LZVXnYx"
 );
 
+// -------------------------------------- //
+//Define Helper Functions
+function cleanDistance(results) {
+  for (var i = 0; i < results.businesses.length; i++) {
+    results.businesses[i].distance = Math.round(results.businesses[i].distance / 10) / 100;
+  }
+  return results;
+}
+
 // ------------------------------------------------------ //
 // Expreses "get" handlers for sending and rendering pages
 
@@ -50,7 +59,7 @@ app.get("/businessInfo", function (req, res) {
   client
     .search(searchterms)
     .then(response => {
-      res.render("search", response.jsonBody);
+      res.render("search", cleanDistance(response.jsonBody));
     })
     .catch(e => {
       console.log(e);
