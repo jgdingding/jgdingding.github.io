@@ -1,4 +1,5 @@
-var lat = 37.7749;
+//Initialize Variables and Document Elements
+var lat = 37.7749; //Default location for Yelp API is San Francisco
 var long = -122.431297;
 var locInput = document.getElementById("locInput");
 var removepad = document.getElementById("removepad");
@@ -7,6 +8,7 @@ var loc = document.getElementsByName("loc");
 var openness = document.getElementsByName("open");
 var body = document.getElementById("mainBody");
 
+//Functions to get user's location using HTML5 Geolocation
 function updatePosition(position) {
     lat = position.coords.latitude;
     long = position.coords.longitude;
@@ -19,6 +21,9 @@ function getLocation() {
         alert("Geolocation is not supported by this browser.");
     }
 }
+
+//JQuery function to get location when page loads
+//Creates an empty local storage array if not already existing
 $(document).ready(function () {
     getLocation();
 
@@ -27,6 +32,7 @@ $(document).ready(function () {
     }
 });
 
+//JQuery function to make "other location" textbox visible when radio button selected
 $("input[type=radio][name=loc]").change(function () {
     if (this.value == "other") {
         locInput.style.display = "inline";
@@ -41,6 +47,7 @@ $("#options").submit(function (e) {
     e.preventDefault();
 });
 
+//Event Listeners to submit when "Enter" key pressed
 term.addEventListener("keydown", function (event) {
     if (event.keyCode == 13) {
         event.preventDefault();
@@ -55,6 +62,9 @@ locInput.addEventListener("keydown", function (event) {
     }
 });
 
+//Get information from form
+//Make JQuery call to server for Yelp API
+//Populate HTML div using results
 function getShops() {
     var getstr = "/businessInfo?";
     getstr += "term=" + term.value + "&";
@@ -85,7 +95,6 @@ function getShops() {
             }
         }
     }
-    console.log(getstr);
     $.get(getstr, function (data) {
         body.innerHTML = data;
         var allRestaraunts = document.getElementsByName("restaurant");
@@ -97,6 +106,8 @@ function getShops() {
     });
 }
 
+// ------------- Functions to Handle "Favorites" ---------------
+//Favorites stored in local storage as JSON string
 function inFavorites(el) {
     var storedFaves = JSON.parse(localStorage.getItem("favorites"));
     for (var i = 0; i < storedFaves.length; i++) {
@@ -131,6 +142,8 @@ function favoriter(el) {
     //console.log(JSON.stringify(storedFaves));
 }
 
+//JQuery for information and display on map using Google Maps API
+//Also uses Geocoder if the user inputs a custom location
 function showMap() {
     var theMap = document.getElementById("map_div");
     theMap.style.display = "block";

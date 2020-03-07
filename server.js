@@ -1,17 +1,15 @@
 #!/usr/bin/nodejs
 
-// // -------------- load packages -------------- //
-
-// INITIALIZATION STUFF
+// --------------------------------- //
+// Initialize Variables
 var express = require("express");
 var app = express();
 var path = require("path");
 var hbs = require("hbs");
 var yelp = require("yelp-fusion");
 
-// // -------------- express initialization -------------- //
-
-// PORT SETUP - NUMBER SPECIFIC TO THIS SYSTEM
+// --------------------------------- //
+// Initial Express and Port
 app.set("port", process.env.PORT || 8080);
 app.set("view engine", "hbs");
 
@@ -19,16 +17,14 @@ app.use("/js", express.static(path.join(__dirname, "js")));
 app.use("/css", express.static(path.join(__dirname, "css")));
 app.use("/pics", express.static(path.join(__dirname, "images")));
 
-// -------------- variable definition -------------- //
-// This counter is stored in RAM, and will be reset every time you
-// restart the server.
-
+// -------------------------------------- //
+//Define Yelp Client
 const client = yelp.client(
   "jnvBl_qSJ0cJxTSy01pcCPEyAYey6gKKO3cSS_7_Ft-d8ObyIfKvxbXRdiBGcFaj9Y60k7Xtz2MyFfymIOaT6tgN1FcBzNbEbd5Zs6c-hD_GjIOB-_RY2WC58LZVXnYx"
 );
 
-// // -------------- express 'get' handlers -------------- //
-// // These 'getters' are what fetch your pages
+// ------------------------------------------------------ //
+// Expreses "get" handlers for sending and rendering pages
 
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/index.html");
@@ -102,9 +98,8 @@ app.get("/:page", function (req, res) {
   }
 });
 
-// -------------- listener -------------- //
-// // The listener is what keeps node 'alive.'
-
+// -------------------------------------- //
+// Listener to keep the website "alive"
 var listener = app.listen(app.get("port"), function () {
   console.log("Express server started on port: " + listener.address().port);
 });

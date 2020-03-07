@@ -1,5 +1,8 @@
+//Initialize Variables
 var shopList = document.getElementById("shopList");
 
+//JQuery function to populate favorites list
+//Uses HTML templating
 $(document).ready(function () {
     if (localStorage.getItem("favorites") === null || localStorage.getItem("favorites") == "[]") {
         shopList.innerHTML = '<li class="colleciton-item center padsides">You have no favorites! Select them on the search page</li>';
@@ -30,6 +33,7 @@ $(document).ready(function () {
     }
 });
 
+//------------ Functions to handle removing and re-adding favorites ----------
 function removeFrom(theList, el) {
     result = theList;
     for (i = 0; i < theList.length; i++) {

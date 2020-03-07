@@ -2,23 +2,25 @@
 <html>
 
 <head>
+  <title>Yelpify!</title>
+  <!------------ Favicon ------------>
+  <link rel="icon" href="pics/icon.png" type="image/png" sizes="16x16" />
 
-  <head>
-    <title>Yelpify!</title>
-    <link rel="icon" href="pics/icon.png" type="image/png" sizes="16x16" />
+  <!-------- Include CSS and other styles ------>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/img.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Domine&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Leckerli+One" />
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="css/search.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Domine&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Leckerli+One" />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>
+  <!----------- Include JQuery -------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
 
 <body>
+  <!------------- Navbar ------------>
   <nav class="teal">
     <div class="nav-wrapper">
       <a href="/" class="brand-logo left">
@@ -32,8 +34,10 @@
     </div>
   </nav>
 
+  <!-------------- Main Body -------------->
   <section>
     <div class="container pad center">
+      <!------------ Form for restaurant information ------------->
       <form onsubmit="getShops()" id="options">
         <div class="label">Type of Food: </div><input id="term" type="text" name="term" class="txtinput"
           placeholder="i.e. Cuisine, Dishes, Drinks, etc."> <br>
@@ -80,12 +84,18 @@
       </form>
     </div>
 
+    <!--------- Empty Div for Restuarants List ---------->
+    <!-- Get autopopulated using Handlebars when form is submitted -->
+    <!-- Map is also populated with the Handlebars -->
     <div class="container pad center" id="mainBody">
     </div>
   </section>
 
+  <!-------- Include Javascript Files ------------>
   <script type="text/javascript" src="js/search.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
+
+  <!---------- Include Google Maps API ------------>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_MPGJc-qoBFauEycfD2B6J96PsQkaMJg">
   </script>
 </body>
